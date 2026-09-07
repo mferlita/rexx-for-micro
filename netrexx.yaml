@@ -42,7 +42,7 @@ rules:
         skip: "\\\\."
 
     # keywords related to program flow
-    - special: "\\b(exit|iterate|leave|return|signal)\\b"
+    - statement: "\\b(exit|iterate|leave|return|signal)\\b"
 
     # keywords that appear before first class or statement
     - statement: "(?i)\\b(import|options|package)\\b"
@@ -84,10 +84,10 @@ rules:
     - identifier.class: "class +[A-Za-z_][A-Za-z0-9_]* *((implements|extends) +[A-Za-z0-9._]+)?"
 
     # properties
-    - statement.properties: "(?i)\\b(properties)\\b"
+    - statement: "(?i)\\b(properties)\\b"
 
     # visibility
-    - statement.access: "(?i)\\b(constant|indirect|inheritable|private|public|shared|static)\\b"
+    - statement: "(?i)\\b(constant|indirect|inheritable|private|public|shared|static)\\b"
 
     # give color to method names; later reset method to default statement color
     - identifier.class: "method +[A-Za-z_][A-Za-z0-9_]*"
@@ -105,15 +105,15 @@ rules:
     - statement.built_in: "(?i)\\b(date|time|random|queued|stream|symbol)\\b"
 
     # Rexx arithmetic methods
-    - statement: "(?i)\\b(OpAdd|OpAnd|OpCc|OpCcblank|OpDiv|OpDivI)\\b"
-    - statement: "(?i)\\b(OpEq|OpEqS|OpGt|OpGtEq|OpGtEqS|OpGtS|OpLt)\\b"
-    - statement: "(?i)\\b(OpLtEq|OpLtEqS|OpLtS|OpMinus|OpMult|OpNot|OpNotEq)\\b"
-    - statement: "(?i)\\b(OpNotEqS|OpOr|OpPlus|OpPow|OpRem|OpSub|OpXor)\\b"
+    - statement.built_in: "(?i)\\b(OpAdd|OpAnd|OpCc|OpCcblank|OpDiv|OpDivI)\\b"
+    - statement.built_in: "(?i)\\b(OpEq|OpEqS|OpGt|OpGtEq|OpGtEqS|OpGtS|OpLt)\\b"
+    - statement.built_in: "(?i)\\b(OpLtEq|OpLtEqS|OpLtS|OpMinus|OpMult|OpNot|OpNotEq)\\b"
+    - statement.built_in: "(?i)\\b(OpNotEqS|OpOr|OpPlus|OpPow|OpRem|OpSub|OpXor)\\b"
 
     # Rexx miscellaneous methods
-    - statement: "(?i)\\b(charAt|equals|hashCode|toboolean|tobyte)\\b"
-    - statement: "(?i)\\b(toByteArray|tochar|toCharArray|todouble|tofloat)\\b"
-    - statement: "(?i)\\b(toint|tolong|toRexx|toshort|toString)\\b"
+    - statement.built_in: "(?i)\\b(charAt|equals|hashCode|toboolean|tobyte)\\b"
+    - statement.built_in: "(?i)\\b(toByteArray|tochar|toCharArray|todouble|tofloat)\\b"
+    - statement.built_in: "(?i)\\b(toint|tolong|toRexx|toshort|toString)\\b"
 
     # RexxIO
     - statement: "(?i)\\b(RexxIO|Ask|AskOne|Say|File|forEachline|RexxChannel)\\b"
@@ -133,10 +133,10 @@ rules:
     - type: "(?i)\\b(NullPointerException|NumberFormatException)\\b"
 
     # modifiers
-    - statement.class: "(?i)\\b(abstract|adapter|binary|dependent)\\b"
-    - statement.class: "(?i)\\b(deprecated|extends|final|implements|interface)\\b"
-    - statement.class: "(?i)\\b(native|protect|returns|signals|transient)\\b"
-    - statement.class: "(?i)\\b(unused|uses|volatile|constant)\\b"
+    - type.keyword: "(?i)\\b(abstract|adapter|binary|dependent)\\b"
+    - type.keyword: "(?i)\\b(deprecated|extends|final|implements|interface)\\b"
+    - type.keyword: "(?i)\\b(native|protect|returns|signals|transient)\\b"
+    - type.keyword: "(?i)\\b(unused|uses|volatile|constant)\\b"
 
     # data types
     - type: "(?i)\\b(boolean|byte|char|double|float)\\b"
