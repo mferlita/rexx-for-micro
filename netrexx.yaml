@@ -24,7 +24,7 @@ rules:
     - constant.specialChar: "\\b(([0-9])+([xX])+([A-Fa-f0-9]+))\\b"
 
     # escape sequences - NetRexx does not had \b; added \0 for null
-    - constant.specialChar: "\\\\([tnrf]|'|\\\"|\\\\|0)"
+    - constant.specialChar: "\\\\([tnrf]|'|\\\"|\\\\|\0)"
 
     # unicode
     - constant.specialChar: "\\\\u[A-Fa-f0-9]{4}"
