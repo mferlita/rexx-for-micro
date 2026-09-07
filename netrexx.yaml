@@ -24,7 +24,7 @@ rules:
     - constant.specialChar: "\\b(([0-9])+([xX])+([A-Fa-f0-9]+))\\b"
 
     # escape sequences - NetRexx does not had \b; added \0 for null
-    - constant.specialChar: "\\\\([tnrf]|'|\\\"|\\\\|\0)"
+    - constant.specialChar: "\\\\([tnrf]|'|\\\"|\\\\|0)"
 
     # unicode
     - constant.specialChar: "\\\\u[A-Fa-f0-9]{4}"
@@ -97,6 +97,10 @@ rules:
     - statement.parameter: "(?i)\\b(verbose1|verbose2)\\b"
     - statement.parameter: "(?i)\\b(verbose3|verbose4)\\b"
     - statement.parameter: "(?i)\\b(verbose5|noverbose)\\b"
+    - statement.parameter: "(?i)\\b(annotations|noannotations)\\b"
+    - statement.parameter: "(?i)\\b(deps|nodeps)\\b"
+    - statement.parameter: "(?i)\\b(mod|nomod)\\b"
+    - statement.parameter: "(?i)\\b(noimplicituses|implicituses)\\b"
 
     # give color to class names; later reset class to default statement color
     - identifier.class: "class +[A-Za-z_][A-Za-z0-9_]* *((implements|extends) +[A-Za-z0-9._]+)?"
@@ -108,7 +112,7 @@ rules:
     -  statement.access: "(?i)\\b(constant|indirect|inheritable|private|public|shared|static)\\b"
 
     # give color to method names; later reset method to default statement color
-    - identifier.class: "method +[A-Za-Z_][A-Za-z0-9_]*"
+    - identifier.class: "method +[A-Za-z_][A-Za-z0-9_]*"
 
     # builtin-functions
     - statement.built_in: "(?i)\\b(abbrev|abs|b2d|b2x|c2d|c2x|center|centre)\\b"
@@ -119,7 +123,7 @@ rules:
     - statement.built_in: "(?i)\\b(reverse|right|sequence|sign|space|strip)\\b"
     - statement.built_in: "(?i)\\b(substr|subword|translate|trunc|upper)\\b"
     - statement.built_in: "(?i)\\b(verify|word|wordindex|wordlength)\\b"
-    - statement.built_in: "(?i)\\b(wordpos|words|x2b|x2c|x2d|value)\\b"
+    - statement.built_in: "(?i)\\b(wordpos|words|x2b|x2c|x2d|value|rxfuncquery)\\b"
     - statement.built_in: "(?i)\\b(date|time|random|queued|stream|symbol)\\b"
 
     # Rexx arithmetic methods
@@ -134,7 +138,7 @@ rules:
     - statement: "(?i)\\b(toint|tolong|toRexx|toshort|toString)\\b"
 
     # RexxIO
-    - statement: "(?i)\\b(RexxIO|Ask|AskOne|Say|File|forEachline)\\b"
+    - statement: "(?i)\\b(RexxIO|Ask|AskOne|Say|File|forEachline|RexxChannel)\\b"
     - statement: "(?i)\\b(popOutputStream|pushOutputStream|setOutputStream)\\b"
 
     # RexxSet digits|form
@@ -146,12 +150,15 @@ rules:
     - type: "(?i)\\b(BadNumericException|DivideException)\\b"
     - type: "(?i)\\b(ExponentOverflowException|NoOtherwiseException)\\b"
     - type: "(?i)\\b(NotCharacterException|NotLogicException)\\b"
+    - type: "(?i)\\b(ArithmeticException|IOException|FileNotFoundException)\\b"
+    - type: "(?i)\\b(IllegalArgumentException|IllegalStateException|InterruptedException)\\b"
+    - type: "(?i)\\b(NullPointerException|NumberFormatException)\\b"
 
     # modifiers
     - statement.class: "(?i)\\b(abstract|adapter|binary|dependent)\\b"
     - statement.class: "(?i)\\b(deprecated|extends|final|implements|interface)\\b"
     - statement.class: "(?i)\\b(native|protect|returns|signals|transient)\\b"
-    - statement.class: "(?i)\\b(unused|uses|volatile)\\b"
+    - statement.class: "(?i)\\b(unused|uses|volatile|constant)\\b"
 
     # data types
     - type: "(?i)\\b(boolean|byte|char|double|float)\\b"
@@ -159,14 +166,15 @@ rules:
 
     # special names
     - special: "(?i)\\b(ask|digits|form|length|null|parent|source)\\b"
-    - special: "(?i)\\b(sourceline|super|this|trace|version)\\b"
+    - special: "(?i)\\b(sourceline|super|this|trace|version|address)\\b"
 
     # keywords
     # re-color class/method from above
     - statement: "(?i)\\b(class|method|do|if|loop|nop|numeric|version|linein)\\b"
     - statement: "(?i)\\b(parse|properties|say|select|arg|pull|source|value)\\b"
     - statement: "(?i)\\b(catch|else|end|finally|otherwise|then|when|upper)\\b"
-    - statement: "(?i)\\b(lower|case)\\b"
+    - statement: "(?i)\\b(lower|case|address|forward|guard|interpret|procedure)\\b"
+    - statement: "(?i)\\b(raise|reply|use|go)\\b"
 
     # sub-keywords
     - statement: "(?i)\\b(all|by|case|engineering|for|forever)\\b"
@@ -207,7 +215,7 @@ rules:
     - statement.built_in: "(?i)\\b(vector|vectora|vectorr|vectorw|xlate|zip|zone)\\b"
 
     # annotations - LEAVE HERE to avoid clashing with KEYWORDS above
-    - preproc: "@[A-Za-z]+"
+    - preproc: "@[A-Za-z_][A-Za-z0-9_.]*"
 
     # Block Comment
     - comment.block:
