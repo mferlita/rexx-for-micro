@@ -143,7 +143,7 @@ rules:
     - type: "(?i)\\b(int|long|short|Rexx|String|void)\\b"
 
     # special names
-    - special: "(?i)\\b(ask|digits|form|length|null|parent|source)\\b"
+    - special: "(?i)\\b(ask|digits|form|null|parent|source)\\b"
     - special: "(?i)\\b(sourceline|super|this|trace|version|address)\\b"
 
     # keywords
