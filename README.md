@@ -1,2 +1,2 @@
 # rexx-for-micro
-Updated support micro support for NetRexx
+Updated micro support for NetRexx
