@@ -14,7 +14,7 @@ rules:
     # boolean - NetRexx uses 1 and 0; 'true' and 'false' can be defined by variables though.
 
     # numbers
-    - constant.number: "\\b[+-]?([0-9]+(\\.[0-9]+)?|\\.[0-9]+|\\.)([eE][+-]?[0-9]+)?[i]?\\b"
+    - constant.number: "\\b[+-]?([0-9]+(\\.[0-9]+)?|\\.[0-9]+|\\.)([eE][+-]?[0-9]+)?\\b"
 
     # binary
     - constant.specialChar: "\\b(([0-9])+([bB])+([0-1]+))\\b"
@@ -69,16 +69,19 @@ rules:
     - statement.parameter: "(?i)\\b(strictprops|nostrictprops)\\b"
     - statement.parameter: "(?i)\\b(strictsignal|nostrictsignal)\\b"
     - statement.parameter: "(?i)\\b(symbols|nosymbols)\\b"
-    - statement.parameter: "(?i)\\b(trace0|trace1|trace2|notrace)\\b"
+    - statement.parameter: "(?i)\\b(trace|trace1|trace2|notrace)\\b"
     - statement.parameter: "(?i)\\b(utf8|noutf8)\\b"
     - statement.parameter: "(?i)\\b(verbose|verbose0)\\b"
     - statement.parameter: "(?i)\\b(verbose1|verbose2)\\b"
     - statement.parameter: "(?i)\\b(verbose3|verbose4)\\b"
     - statement.parameter: "(?i)\\b(verbose5|noverbose)\\b"
-    - statement.parameter: "(?i)\\b(annotations|noannotations)\\b"
+    - statement.parameter: "(?i)\\b(annotate|noannotate)\\b"
     - statement.parameter: "(?i)\\b(deps|nodeps)\\b"
     - statement.parameter: "(?i)\\b(mod|nomod)\\b"
-    - statement.parameter: "(?i)\\b(noimplicituses|implicituses)\\b"
+    - statement.parameter: "(?i)\\b(implicituses|noimplicituses)\\b"
+    - statement.parameter: "(?i)\\b(compile|nocompile)\\b"
+    - statement.parameter: "(?i)\\b(keep|nokeep)\\b"
+    - statement.parameter: "(?i)\\b(time|notime)\\b"
 
     # give color to class names; later reset class to default statement color
     - identifier.class: "class +[A-Za-z_][A-Za-z0-9_]* *((implements|extends) +[A-Za-z0-9._]+)?"
@@ -86,8 +89,17 @@ rules:
     # properties
     - statement: "(?i)\\b(properties)\\b"
 
-    # visibility
-    - statement: "(?i)\\b(constant|indirect|inheritable|private|public|shared|static)\\b"
+    # visibility & modifiers
+    - statement: "(?i)\\b(abstract|constant|final|indirect|inheritable|native|private|public|shared|static)\\b"
+    - statement: "(?i)\\b(protect)\\b"
+    - statement: "(?i)\\b(binary|nobinary|decimal|nodecimal)\\b"
+    - statement: "(?i)\\b(signals|returns)\\b"
+    
+    # property-specific modifiers
+    - statement: "(?i)\\b(transient|volatile)\\b"
+    
+    # class-specific modifier
+    - statement: "(?i)\\b(adapter)\\b"
 
     # give color to method names; later reset method to default statement color
     - identifier.class: "method +[A-Za-z_][A-Za-z0-9_]*"
@@ -103,6 +115,12 @@ rules:
     - statement.built_in: "(?i)\\b(verify|word|wordindex|wordlength)\\b"
     - statement.built_in: "(?i)\\b(wordpos|words|x2b|x2c|x2d|value|rxfuncquery)\\b"
     - statement.built_in: "(?i)\\b(date|time|random|queued|stream|symbol)\\b"
+    - statement.built_in: "(?i)\\b(address|arg|condition|sourceline|trace)\\b"
+    - statement.built_in: "(?i)\\b(bitand|bitor|bitxor|justify|xrange)\\b"
+    - statement.built_in: "(?i)\\b(digits|form|fuzz|linesize)\\b"
+    - statement.built_in: "(?i)\\b(rxfuncadd|rxfuncdrop)\\b"
+    - statement.built_in: "(?i)\\b(charin|charout|chars|close|linein|lineout|lines)\\b"
+    - statement.built_in: "(?i)\\b(fdopen|fileno|ftell|open|pclose|popen)\\b"
 
     # Rexx arithmetic methods
     - statement.built_in: "(?i)\\b(OpAdd|OpAnd|OpCc|OpCcblank|OpDiv|OpDivI)\\b"
@@ -143,21 +161,21 @@ rules:
     - type: "(?i)\\b(int|long|short|Rexx|String|void)\\b"
 
     # special names
-    - special: "(?i)\\b(ask|digits|form|null|parent|source)\\b"
-    - special: "(?i)\\b(sourceline|super|this|trace|version|address)\\b"
+    - special: "(?i)\\b(ask|class|digits|form|length|null|source)\\b"
+    - special: "(?i)\\b(sourceline|super|this|trace|version)\\b"
 
     # keywords
     # re-color class/method from above
-    - statement: "(?i)\\b(class|method|do|if|loop|nop|numeric|version|linein)\\b"
-    - statement: "(?i)\\b(parse|properties|say|select|arg|pull|source|value)\\b"
-    - statement: "(?i)\\b(catch|else|end|finally|otherwise|then|when|upper)\\b"
-    - statement: "(?i)\\b(lower|case|address|forward|guard|interpret|procedure)\\b"
-    - statement: "(?i)\\b(raise|reply|use|go)\\b"
+    - statement: "(?i)\\b(class|method|do|if|loop|nop|numeric)\\b"
+    - statement: "(?i)\\b(parse|properties|say|select|arg|pull|value)\\b"
+    - statement: "(?i)\\b(catch|else|end|finally|otherwise|then|when)\\b"
+    - statement: "(?i)\\b(address|interpret|procedure)\\b"
+    - statement: "(?i)\\b(use|go)\\b"
 
     # sub-keywords
-    - statement: "(?i)\\b(all|by|case|engineering|for|forever)\\b"
+    - statement: "(?i)\\b(all|by|engineering|for|forever)\\b"
     - statement: "(?i)\\b(label|methods|off|over|results|scientific)\\b"
-    - statement: "(?i)\\b(to|until|var|while)\\b"
+    - statement: "(?i)\\b(to|until|var|while|upper|lower)\\b"
 
     # pipe
     - statement: "(?i)\\b(pipe)\\b"
@@ -178,7 +196,7 @@ rules:
     - statement.built_in: "(?i)\\b(hostbyaddr|hostbyname|hostid|hostname|insert)\\b"
     - statement.built_in: "(?i)\\b(inside|join|joincont|juxtapose|listzip|literal)\\b"
     - statement.built_in: "(?i)\\b(locate|lookup|nfind|ninside|nlocate|noeofback)\\b"
-    - statement.built_in: "(?i)\\b(nop|not|notfind|notinside|notlocate|outside|over)\\b"
+    - statement.built_in: "(?i)\\b(not|notfind|notinside|notlocate|outside)\\b"
     - statement.built_in: "(?i)\\b(overl|overla|overlay|pad|pick|prefix|ptimer)\\b"
     - statement.built_in: "(?i)\\b(qsort|query|random|reverse|serialize|sort)\\b"
     - statement.built_in: "(?i)\\b(sortClass|sortRexx|space|spec|specs|split)\\b"
@@ -189,7 +207,7 @@ rules:
     - statement.built_in: "(?i)\\b(tcpclient|tcpdata|tcplisten|term|termi|termin)\\b"
     - statement.built_in: "(?i)\\b(termina|terminal|timestamp|tokenise|tokenize)\\b"
     - statement.built_in: "(?i)\\b(tolabel|totarget|trans|transl|transla|translat)\\b"
-    - statement.built_in: "(?i)\\b(translate|truncate|unique|unzip|var|varover)\\b"
+    - statement.built_in: "(?i)\\b(translate|truncate|unique|unzip|varover)\\b"
     - statement.built_in: "(?i)\\b(vector|vectora|vectorr|vectorw|xlate|zip|zone)\\b"
 
     # annotations - LEAVE HERE to avoid clashing with KEYWORDS above
