@@ -105,33 +105,33 @@ rules:
     - identifier.method: "method +[A-Za-z_][A-Za-z0-9_]*"
 
     # builtin-functions
-    - statement.built_in: "(?i)\\b(abbrev|abs|b2d|b2x|c2d|c2x|center|centre)\\b"
-    - statement.built_in: "(?i)\\b(changestr|compare|copies|copyindexed)\\b"
-    - statement.built_in: "(?i)\\b(countstr|d2b|d2c|d2x|datatype|delstr)\\b"
-    - statement.built_in: "(?i)\\b(delword|exists|format|insert|lastpos|left)\\b"
-    - statement.built_in: "(?i)\\b(length|lower|max|min|overlay|pos)\\b"
-    - statement.built_in: "(?i)\\b(reverse|right|sequence|sign|space|strip)\\b"
-    - statement.built_in: "(?i)\\b(substr|subword|translate|trunc|upper)\\b"
-    - statement.built_in: "(?i)\\b(verify|word|wordindex|wordlength)\\b"
-    - statement.built_in: "(?i)\\b(wordpos|words|x2b|x2c|x2d|value|rxfuncquery)\\b"
-    - statement.built_in: "(?i)\\b(date|time|random|queued|stream|symbol)\\b"
-    - statement.built_in: "(?i)\\b(address|arg|condition|sourceline|trace)\\b"
-    - statement.built_in: "(?i)\\b(bitand|bitor|bitxor|justify|xrange)\\b"
-    - statement.built_in: "(?i)\\b(digits|form|fuzz|linesize)\\b"
-    - statement.built_in: "(?i)\\b(rxfuncadd|rxfuncdrop)\\b"
-    - statement.built_in: "(?i)\\b(charin|charout|chars|close|linein|lineout|lines)\\b"
-    - statement.built_in: "(?i)\\b(fdopen|fileno|ftell|open|pclose|popen)\\b"
+    - identifier.method: "(?i)\\b(abbrev|abs|b2d|b2x|c2d|c2x|center|centre)\\b"
+    - identifier.method: "(?i)\\b(changestr|compare|copies|copyindexed)\\b"
+    - identifier.method: "(?i)\\b(countstr|d2b|d2c|d2x|datatype|delstr)\\b"
+    - identifier.method: "(?i)\\b(delword|exists|format|insert|lastpos|left)\\b"
+    - identifier.method: "(?i)\\b(length|lower|max|min|overlay|pos)\\b"
+    - identifier.method: "(?i)\\b(reverse|right|sequence|sign|space|strip)\\b"
+    - identifier.method: "(?i)\\b(substr|subword|translate|trunc|upper)\\b"
+    - identifier.method: "(?i)\\b(verify|word|wordindex|wordlength)\\b"
+    - identifier.method: "(?i)\\b(wordpos|words|x2b|x2c|x2d|value|rxfuncquery)\\b"
+    - identifier.method: "(?i)\\b(date|time|random|queued|stream|symbol)\\b"
+    - identifier.method: "(?i)\\b(address|arg|condition|sourceline|trace)\\b"
+    - identifier.method: "(?i)\\b(bitand|bitor|bitxor|justify|xrange)\\b"
+    - identifier.method: "(?i)\\b(digits|form|fuzz|linesize)\\b"
+    - identifier.method: "(?i)\\b(rxfuncadd|rxfuncdrop)\\b"
+    - identifier.method: "(?i)\\b(charin|charout|chars|close|linein|lineout|lines)\\b"
+    - identifier.method: "(?i)\\b(fdopen|fileno|ftell|open|pclose|popen)\\b"
 
     # Rexx arithmetic methods
-    - statement.built_in: "(?i)\\b(OpAdd|OpAnd|OpCc|OpCcblank|OpDiv|OpDivI)\\b"
-    - statement.built_in: "(?i)\\b(OpEq|OpEqS|OpGt|OpGtEq|OpGtEqS|OpGtS|OpLt)\\b"
-    - statement.built_in: "(?i)\\b(OpLtEq|OpLtEqS|OpLtS|OpMinus|OpMult|OpNot|OpNotEq)\\b"
-    - statement.built_in: "(?i)\\b(OpNotEqS|OpOr|OpPlus|OpPow|OpRem|OpSub|OpXor)\\b"
+    - identifier.method: "(?i)\\b(OpAdd|OpAnd|OpCc|OpCcblank|OpDiv|OpDivI)\\b"
+    - identifier.method: "(?i)\\b(OpEq|OpEqS|OpGt|OpGtEq|OpGtEqS|OpGtS|OpLt)\\b"
+    - identifier.method: "(?i)\\b(OpLtEq|OpLtEqS|OpLtS|OpMinus|OpMult|OpNot|OpNotEq)\\b"
+    - identifier.method: "(?i)\\b(OpNotEqS|OpOr|OpPlus|OpPow|OpRem|OpSub|OpXor)\\b"
 
     # Rexx miscellaneous methods
-    - statement.built_in: "(?i)\\b(charAt|equals|hashCode|toboolean|tobyte)\\b"
-    - statement.built_in: "(?i)\\b(toByteArray|tochar|toCharArray|todouble|tofloat)\\b"
-    - statement.built_in: "(?i)\\b(toint|tolong|toRexx|toshort|toString)\\b"
+    - identifier.method: "(?i)\\b(charAt|equals|hashCode|toboolean|tobyte)\\b"
+    - identifier.method: "(?i)\\b(toByteArray|tochar|toCharArray|todouble|tofloat)\\b"
+    - identifier.method: "(?i)\\b(toint|tolong|toRexx|toshort|toString)\\b"
 
     # RexxIO
     - statement: "(?i)\\b(RexxIO|Ask|AskOne|Say|File|forEachline|RexxChannel)\\b"
@@ -151,17 +151,17 @@ rules:
     - type: "(?i)\\b(NullPointerException|NumberFormatException)\\b"
 
     # modifiers
-    - type.keyword: "(?i)\\b(abstract|adapter|binary|dependent)\\b"
-    - type.keyword: "(?i)\\b(deprecated|extends|final|implements|interface)\\b"
-    - type.keyword: "(?i)\\b(native|protect|returns|signals|transient)\\b"
-    - type.keyword: "(?i)\\b(unused|uses|volatile|constant)\\b"
+    - type: "(?i)\\b(abstract|adapter|binary|dependent)\\b"
+    - type: "(?i)\\b(deprecated|extends|final|implements|interface)\\b"
+    - type: "(?i)\\b(native|protect|returns|signals|transient)\\b"
+    - type: "(?i)\\b(unused|uses|volatile|constant)\\b"
 
     # data types
     - type: "(?i)\\b(boolean|byte|char|double|float)\\b"
     - type: "(?i)\\b(int|long|short|Rexx|String|void)\\b"
 
     # special names
-    - special: "(?i)\\b(ask|class|digits|form|length|null|source)\\b"
+    - special: "(?i)\\b(ask|class|digits|form|null|source)\\b"
     - special: "(?i)\\b(sourceline|super|this|trace|version)\\b"
 
     # keywords

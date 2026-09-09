@@ -1,2 +1,2 @@
 # rexx-for-micro
-Updated micro support for NetRexx
+Updated micro support and a modified catppuccin-macchiato theme for NetRexx.
