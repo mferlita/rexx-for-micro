@@ -17,14 +17,14 @@ rules:
     - constant.number: "\\b[+-]?([0-9]+(\\.[0-9]+)?|\\.[0-9]+|\\.)([eE][+-]?[0-9]+)?\\b"
 
     # binary
-    - constant.specialChar: "\\b(([0-9])+([bB])+([0-1]+))\\b"
+    - constant.number: "\\b(([0-9])+([bB])+([0-1]+))\\b"
 
     # hex
-    - constant.specialChar: "\\\\x[A-Fa-f0-9]{2}"
-    - constant.specialChar: "\\b(([0-9])+([xX])+([A-Fa-f0-9]+))\\b"
+    - constant.number: "\\\\x[A-Fa-f0-9]{2}"
+    - constant.number: "\\b(([0-9])+([xX])+([A-Fa-f0-9]+))\\b"
 
     # escape sequences - NetRexx does not had \b; added \0 for null
-    - constant.specialChar: "\\\\([tnrf]|'|\\\"|\\\\|\0)"
+    - constant.escape: "\\\\([tnrf]|'|\\\"|\\\\|\0)"
 
     # unicode
     - constant.specialChar: "\\\\u[A-Fa-f0-9]{4}"
@@ -102,7 +102,7 @@ rules:
     - statement: "(?i)\\b(adapter)\\b"
 
     # give color to method names; later reset method to default statement color
-    - identifier.class: "method +[A-Za-z_][A-Za-z0-9_]*"
+    - identifier.method: "method +[A-Za-z_][A-Za-z0-9_]*"
 
     # builtin-functions
     - statement.built_in: "(?i)\\b(abbrev|abs|b2d|b2x|c2d|c2x|center|centre)\\b"
