@@ -1,0 +1,14 @@
+{
+    "colorcolumn": 80,
+    "saveundo": true,
+    "colorscheme": "catppuccin-macchiato",
+    "tabsize": 2,
+    "tabstospaces": true,
+    "mouse": true,
+    "filemanager.openonstart": true,
+    "filemanager.showdotfiles": true,
+    "filemanager.showignored": false,
+    "filemanager.foldersfirst": true,
+    "autoclose": true,
+    "scrollbar": true
+}

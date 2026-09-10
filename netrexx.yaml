@@ -23,7 +23,7 @@ rules:
     - constant.number: "\\\\x[A-Fa-f0-9]{2}"
     - constant.number: "\\b(([0-9])+([xX])+([A-Fa-f0-9]+))\\b"
 
-    # escape sequences - NetRexx does not had \b; added \0 for null
+    # escape sequences - NetRexx does not have \b; added \0 for null
     - constant.escape: "\\\\([tnrf]|'|\\\"|\\\\|\0)"
 
     # unicode
