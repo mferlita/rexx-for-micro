@@ -73,7 +73,7 @@ rules:
         skip: "\\\\."
 
     # keywords related to program flow
-    - statement: "\\b(exit|iterate|leave|return|signal)\\b"
+    - statement: "(?i)\\b(exit|iterate|leave|return|signal)\\b"
 
    # give color to class names; later reset class to default statement color
     - identifier.class: "class +[A-Za-z_][A-Za-z0-9_]* *((implements|extends) +[A-Za-z0-9._]+)?"
