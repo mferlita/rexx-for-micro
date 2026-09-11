@@ -167,7 +167,7 @@ rules:
     # sub-keywords
     - statement: "(?i)\\b(all|by|engineering|for|forever)\\b"
     - statement: "(?i)\\b(label|methods|off|over|results|scientific)\\b"
-    - statement: "(?i)\\b(to|until|var|while|upper|lower)\\b"
+    - statement: "(?i)\\b(to|until|var|while)\\b"
 
     # annotations - LEAVE HERE to avoid clashing with KEYWORDS above
     - preproc: "@[A-Za-z_][A-Za-z0-9_.]*"
